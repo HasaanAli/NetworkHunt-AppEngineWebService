@@ -28,17 +28,17 @@ class Reception(ndb.Model):
 
     #author = ndb.StructuredProperty(Author)
     # content = ndb.StringProperty(indexed=False)
-    latitude = ndb.FloatProperty(indexed=False)
-    longitude = ndb.FloatProperty(indexed=False)
+    latitude = ndb.FloatProperty(indexed=True)
+    longitude = ndb.FloatProperty(indexed=True)
 
-    serviceProvider = ndb.StringProperty()
-    serviceType = ndb.StringProperty()
-    signalStrength = ndb.IntegerProperty()
+    serviceProvider = ndb.StringProperty(indexed=True)
+    serviceType = ndb.StringProperty(indexed=True)
+    signalStrength = ndb.IntegerProperty(indexed=True)
 
-    make = ndb.StringProperty()
-    model = ndb.StringProperty()
-    timestamp = ndb.DateTimeProperty()
-    uploadDate = ndb.DateTimeProperty(auto_now_add=True)
+    make = ndb.StringProperty(indexed=True)
+    model = ndb.StringProperty(indexed=True)
+    timestamp = ndb.DateTimeProperty(indexed=True)
+    uploadDate = ndb.DateTimeProperty(auto_now_add=True,indexed=True)
     def toDictionary(self):
         latitude = str(self.latitude)
         longitude = str(self.longitude)
